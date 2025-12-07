@@ -10,7 +10,7 @@ const About = () => {
           <h2 className="text-4xl font-bold mb-6">
             About <span className="text-green-600">Brave Photography</span>
           </h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
+          <p className="text-gray-700 mb-4 font-sans leading-relaxed">
             At Brave Studio, photography is not just about taking pictures; it’s
             about creating timeless memories you’ll cherish forever. Our
             experienced photographers capture the essence of every moment with
