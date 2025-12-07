@@ -10,5 +10,6 @@ src/
  │   ├─ Contact.jsx
  │   └─ NotFound.jsx
  ├─ routes.js
+ ├─ AppRouter.jsx
  ├─ App.jsx
  └─ main.jsx
