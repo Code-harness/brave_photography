@@ -25,7 +25,7 @@ const services = [
 ];
 
 const Services = () => (
-  <section className="py-20 h-screen bg-white font-poppins">
+  <section className="py-20 h-auto bg-white font-poppins">
     <h2 className="text-4xl font-bold text-center mb-4">
       Our <span className="text-green-600">Services</span>
     </h2>

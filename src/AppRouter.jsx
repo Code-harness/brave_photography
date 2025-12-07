@@ -6,7 +6,7 @@ import { routes } from './Routes.jsx';
 const AppRouter = () => (
   <Router>
     <Navbar />
-    <div className="min-h-[80vh] bg-red-400">
+    <div className="min-h-[80vh] bg-green-50">
       <Routes>
         {routes.map(route => (
           <Route key={route.path} path={route.path} element={route.element} />

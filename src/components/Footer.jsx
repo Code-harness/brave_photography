@@ -4,7 +4,7 @@ const Footer = () => {
   const navigate =useNavigate();
 
  return(
- <footer className="bg-green-800 text-white">
+ <footer className="bg-green-600 text-white">
     <div
       className="max-w-7xl mx-auto px-4 py-8 grid gap-8 
                     grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
@@ -19,7 +19,7 @@ const Footer = () => {
       </div>
 
       <div>
-        <h2 className="text-lg font-bold border-b-2 border-green-100 mb-2">
+        <h2 className="text-lg font-bold  mb-2">
           Quick Links
         </h2>
         <NavLink to="/" className="text-sm hover:underline block mb-1">
