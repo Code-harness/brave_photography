@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Gallery from "../Pages/Gallery";
 import Image1 from "../assets/images/1.jpeg";
 import Image2 from "../assets/images/2.jpg";
 import Image3 from "../assets/images/3.jpeg";
@@ -12,13 +13,12 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000); // 5000ms = 5s
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="h-screen relative flex items-center justify-center text-center overflow-hidden">
-      {/* Background images */}
       {images.map((img, index) => (
         <div
           key={index}
@@ -29,22 +29,28 @@ const Hero = () => {
         ></div>
       ))}
 
-      {/* Overlay to darken images */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Content */}
-      <div className="relative z-10 text-white px-4">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Capture Your Moments
-        </h1>
-        <p className="text-lg md:text-2xl mb-6">
-          Professional Photography Services for Every Occasion
-        </p>
-        <button className="bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-md font-semibold transition">
-          Book a Session
-        </button>
+      <div className="relative z-10 w-full px-4">
+        <div>
+          <h2 className="text-white text-6xl font-bold mb-2">Capturing Life's <span className="text-green-600">Precious</span> Moments</h2>
+          <p className="text-white text-[1.3rem]">
+            Welcome to Brave Photgraphie, where we transform your special moments
+            into timeless memories.
+          </p>
+        </div>
+
+        {/* <div className="grid grid-cols-3 justify-around  text-white px-6">
+          <div className="bg-black/40 rounded-md backdrop-blur-sm p-6 flex flex-col ">
+            <p className="text-red-500 m-2">icon</p>
+            <p className="m-2">10000+</p>
+            <p>Photo Sessions</p>
+          </div>
+        </div> */}
       </div>
     </section>
+
+    
   );
 };
 
