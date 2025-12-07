@@ -1,0 +1,14 @@
+src/
+ ├─ components/
+ │   ├─ Navbar.jsx
+ │   ├─ Footer.jsx
+ │   └─ Hero.jsx
+ ├─ pages/
+ │   ├─ Home.jsx  
+ │   ├─ Gallery.jsx
+ │   ├─ Services.jsx
+ │   ├─ Contact.jsx
+ │   └─ NotFound.jsx
+ ├─ routes.js
+ ├─ App.jsx
+ └─ main.jsx
