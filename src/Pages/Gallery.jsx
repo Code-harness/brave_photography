@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Image1 from "../assets/images/1.jpeg";
 import Image2 from "../assets/images/2.jpg";
 import Image3 from "../assets/images/3.jpeg";
-import Image4 from "../assets/images/1.jpeg";
-import Image5 from "../assets/images/2.jpg";
-import Image6 from "../assets/images/3.jpeg";
-import Image7 from "../assets/images/1.jpeg";
-import Image8 from "../assets/images/2.jpg";
-import Image9 from "../assets/images/3.jpeg";
+import Image4 from "../assets/images/4.jpeg";
+import Image5 from "../assets/images/5.jpg";
+import Image6 from "../assets/images/6.webp";
+import Image7 from "../assets/images/7.jpg";
+import Image8 from "../assets/images/8.jpg";
+import Image9 from "../assets/images/9.webp";
 
 const images = [
   Image1, Image2, Image3,
@@ -23,8 +23,8 @@ const Gallery = () => {
   const prevImage = () => setCurrentIndex((currentIndex + images.length - 1) % images.length);
 
   return (
-    <section className="py-16 bg-gray-100 text-center">
-      <h2 className="text-4xl font-bold mb-8">Gallery</h2>
+    <section className="py-28 bg-gray-100 text-center">
+      <h2 className="text-4xl text-green-600 font-bold mb-8"><span className="text-black">Our </span>Gallery</h2>
 
       {/* Masonry Grid */}
       <div className="columns-1 sm:columns-2 md:columns-3 gap-4 px-4 max-w-6xl mx-auto">

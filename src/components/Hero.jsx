@@ -33,8 +33,8 @@ const Hero = () => {
 
       <div className="relative z-10 w-full px-4">
         <div>
-          <h2 className="text-white text-6xl font-bold mb-2">Capturing Life's <span className="text-green-600">Precious</span> Moments</h2>
-          <p className="text-white text-[1.3rem]">
+          <h2 className="text-white text-4xl font-bold mb-2">Capturing Life's <span className="text-green-600">Precious</span> Moments</h2>
+          <p className="text-white text-[1.1rem]">
             Welcome to Brave Photgraphie, where we transform your special moments
             into timeless memories.
           </p>
