@@ -3,11 +3,13 @@ import Gallery from "../Pages/Gallery";
 import Image1 from "../assets/images/1.jpeg";
 import Image2 from "../assets/images/2.jpg";
 import Image3 from "../assets/images/4.jpeg";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const images = [Image1, Image2, Image3];
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
+  const Navigate = useNavigate();
 
   // Change image every 5 seconds
   useEffect(() => {
@@ -47,6 +49,9 @@ const Hero = () => {
             <p>Photo Sessions</p>
           </div>
         </div> */}
+        <div className="mt-4">
+          <button onClick={()=>Navigate("/contact")} className="p-4 bg-green-600 text-white rounded-md hover:scale-105 transition-all hover:bg-green-500">Book a Session</button>
+        </div>
       </div>
     </section>
 

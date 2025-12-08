@@ -1,11 +1,13 @@
 import React from "react";
 import Image from "../assets/images/9.webp";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-20 bg-transparent font-poppins">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-12">
-        {/* Text Content */}
+        
         <div className="lg:w-1/2">
           <h2 className="text-4xl font-bold mb-6">
             About <span className="text-green-600">Brave Photography</span>
@@ -22,14 +24,14 @@ const About = () => {
             your unique personality.
           </p>
           <a
-            href="#contact"
-            className="inline-block px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700 transition-colors duration-300"
+            onClick={()=>navigate("/contact")}
+            className="inline-block px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700 transition-colors duration-300 hover:cursor-pointer"
           >
             Book a Session
           </a>
         </div>
 
-        {/* Image */}
+        
         <div className=" relative lg:w-1/2">
           <img
             src={Image}

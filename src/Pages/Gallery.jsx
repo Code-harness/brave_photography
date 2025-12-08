@@ -26,7 +26,6 @@ const Gallery = () => {
     <section className="py-28 bg-gray-100 text-center">
       <h2 className="text-4xl text-green-600 font-bold mb-8"><span className="text-black">Our </span>Gallery</h2>
 
-      {/* Masonry Grid */}
       <div className="columns-1 sm:columns-2 md:columns-3 gap-4 px-4 max-w-6xl mx-auto">
         {images.map((img, index) => (
           <div key={index} className="mb-4 break-inside-avoid rounded-md overflow-hidden cursor-pointer">
@@ -34,7 +33,7 @@ const Gallery = () => {
               src={img}
               alt={`Gallery ${index}`}
               className="w-full object-cover hover:scale-105 transition-transform duration-300"
-              style={{ height: `${200 + (index % 3) * 80}px` }} // simulate different heights
+              style={{ height: `${200 + (index % 3) * 80}px` }}
               onClick={() => {
                 setCurrentIndex(index);
                 setIsOpen(true);
