@@ -1,124 +1,77 @@
-import { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { routes } from "../Routes.jsx";
 import Logo from "../assets/logo.jpeg";
+import { Menu, X } from "lucide-react"; // <-- lucide icons
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => setIsOpen(false), [location]);
 
   return (
-    <nav 
-      className={`fixed w-full top-0 z-[100] transition-all duration-300 ${
-        scrolled 
-          ? "bg-white/90 backdrop-blur-md py-3 shadow-sm border-b border-gray-100" 
-          : "bg-white py-5" // Always white background for visibility
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          
-          {/* Logo Section */}
-          <NavLink to="/" className="flex items-center gap-2 group">
-            <div className="h-10 w-10 overflow-hidden rounded-lg border border-gray-200">
-              <img src={Logo} alt="Brave Logo" className="h-full w-full object-cover" />
-            </div>
-            <span className="text-xl font-black tracking-tighter text-gray-900">
-              BRAVE<span className="text-green-600">.</span>
-            </span>
-          </NavLink>
+    <nav className="bg-black/20 backdrop-blur-md shadow-md fixed w-full top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center">
+          {/* Logo / Brand */}
+          <div className="flex-shrink-0">
+            <img
+              src={Logo}
+              alt="PhotoCo Logo"
+              className="h-10 w-auto rounded-md bg-cover"
+            />
+          </div>
 
-          {/* Desktop Links - Now using dark text for white background */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex space-x-6">
             {routes
               .filter((r) => r.showInNavbar)
               .map((route) => (
                 <NavLink
                   key={route.path}
                   to={route.path}
-                  className={({ isActive }) => `
-                    relative text-[13px] font-bold uppercase tracking-widest transition-all duration-300
-                    ${isActive ? "text-green-600" : "text-gray-500 hover:text-gray-900"}
-                  `}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-green-600 font-semibold border-b-2 border-green-600 pb-1"
+                      : "text-white hover:text-green-500 transition pb-1"
+                  }
                 >
-                  {({ isActive }) => (
-                    <>
-                      {route.name}
-                      {isActive && (
-                        <motion.div 
-                          layoutId="navUnderline"
-                          className="absolute -bottom-1 left-0 right-0 h-[2px] bg-green-600 rounded-full"
-                        />
-                      )}
-                    </>
-                  )}
+                  {route.name}
                 </NavLink>
               ))}
           </div>
 
-          {/* Book Session Button */}
-          <div className="hidden md:block">
-            <NavLink
-              to="/contact"
-              className="group flex items-center gap-2 bg-gray-900 text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all hover:bg-green-600 hover:shadow-lg hover:shadow-green-600/20"
-            >
-              Book Now 
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </NavLink>
-          </div>
-
-          {/* Mobile Menu Icon */}
-          <div className="md:hidden">
+          {/* Mobile Hamburger */}
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-gray-900"
+              className="text-gray-700 hover:text-green-500 focus:outline-none"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
-            className="fixed inset-0 bg-white z-[90] flex flex-col p-10 md:hidden"
-          >
-            <div className="flex flex-col space-y-6 mt-20">
-              {routes
-                .filter((r) => r.showInNavbar)
-                .map((route, i) => (
-                  <NavLink
-                    key={route.path}
-                    to={route.path}
-                    className={({ isActive }) => 
-                      `text-4xl font-black transition-colors ${
-                        isActive ? "text-green-600" : "text-gray-900"
-                      }`
-                    }
-                  >
-                    {route.name}
-                  </NavLink>
-                ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isOpen && (
+        <div className="md:hidden bg-white shadow-md">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+            {routes
+              .filter((r) => r.showInNavbar)
+              .map((route) => (
+                <NavLink
+                  key={route.path}
+                  to={route.path}
+                  onClick={() => setIsOpen(false)} // close menu on click
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-green-600 font-semibold block px-3 py-2 rounded"
+                      : "text-gray-700 hover:text-green-500 block px-3 py-2 rounded transition"
+                  }
+                >
+                  {route.name}
+                </NavLink>
+              ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
