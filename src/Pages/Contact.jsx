@@ -5,19 +5,19 @@ import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
 const contactDetails = [
   {
     title: "Email Us",
-    value: "info@bravephoto.com",
+    value: "mwezelie29@gmail.com",
     description: "Our team usually responds within 24 hours.",
     icon: <Mail className="text-green-600" size={24} />,
   },
   {
     title: "Call Us",
-    value: "+250 781 009 693",
+    value: "+250 790 916 036",
     description: "Mon-Fri from 8am to 6pm.",
     icon: <Phone className="text-green-600" size={24} />,
   },
   {
-    title: "Visit Studio",
-    value: "123 Photography St, Kigali",
+    title: "Studio",
+    value: "Brave Photography St, Kigali",
     description: "Come say hi at our creative space.",
     icon: <MapPin className="text-green-600" size={24} />,
   },
